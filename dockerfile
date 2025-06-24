@@ -14,3 +14,4 @@ ENTRYPOINT ["java", "-jar", "springbootstudent-registration-backend-0.0.1-SNAPSH
 
 EXPOSE 8080
 
+# cmd
