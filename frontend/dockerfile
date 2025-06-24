@@ -8,6 +8,9 @@ RUN npm install && npm run build
 
 RUN apk update && apk add apache2
 
+RUN mkdir -p /var/www/localhost/htdocs
+COPY --from=build /opt/dist /var/www/localhost/htdocs
+
 EXPOSE 80
 
-ENTRYPOINT [ "apachectl","-DFOREGROUND" ]
+ENTRYPOINT [ "httpd", "-D", "FOREGROUND" ]
