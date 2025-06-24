@@ -17,7 +17,7 @@ RUN mvn clean package -DskipTests
 
 WORKDIR /opt/target/
 
-EXPOSE 8080
+EXPOSE 8081
 
 # ENTRYPOINT [ "java", "-jar" ]
 
