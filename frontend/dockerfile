@@ -1,0 +1,13 @@
+FROM node:24-alpine3.21
+
+COPY . /opt/ 
+
+WORKDIR /opt
+
+RUN npm install && npn run build
+
+RUN apk update && apk add apache2 -y
+
+EXPOSE 80
+
+ENTRYPOINT [ "apachectl","-D", "FOREGROUND" ]
