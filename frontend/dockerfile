@@ -1,6 +1,6 @@
-FROM node:24-alpine3.21
+FROM node:24-alpine
 
-COPY . /opt/ 
+COPY . /opt/
 
 WORKDIR /opt
 
@@ -8,9 +8,13 @@ RUN npm install && npm run build
 
 RUN apk update && apk add apache2
 
-RUN mkdir -p /var/www/localhost/htdocs
-COPY --from=build /opt/dist /var/www/localhost/htdocs
+# dist/index.html --> /var/www/html/
+
+RUN rm -f /var/www/localhost/htdocs/* 
+RUN cp -rf dist/* /var/www/localhost/htdocs/
 
 EXPOSE 80
 
-ENTRYPOINT [ "httpd", "-D", "FOREGROUND" ]
+CMD ["httpd", "-D", "FOREGROUND"]
+
+# ENTRYPOINT ["apachectl", "-D", "FOREGROUND"]
