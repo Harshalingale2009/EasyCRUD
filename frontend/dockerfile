@@ -10,4 +10,4 @@ RUN apk update && apk add apache2
 
 EXPOSE 80
 
-ENTRYPOINT [ "apachectl","-D", "FOREGROUND" ]
+ENTRYPOINT [ "apachectl","-DFOREGROUND" ]
