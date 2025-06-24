@@ -14,4 +14,4 @@ ENTRYPOINT ["java", "-jar"]
 
 EXPOSE 8080
 
-CMD [ "springbootstudent-registration-backend.0.0.1-SNAPSHOT.jar" ]
+CMD [ "springbootstudent-registration-backend-0.0.1-SNAPSHOT.jar" ]
